@@ -1,0 +1,55 @@
+<thead>
+                                                <tr>
+                                                    <th>STT</th>
+                                                    <th>Subject Name</th>
+                                                    <th>Subject Code</th>
+                                                    <th>Creation Date</th>
+                                                    <th>Update Date</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                $sql = "SELECT * FROM tblSubjects";
+                                                $query = $dbh->prepare($sql);
+                                                $query->execute(); //thu hien
+                                                //sinh mang tra kq
+                                                $results = $query->fetchAll(PDO::FETCH_OBJ);
+                                                $cnt = 1;
+                                                foreach ($results as $i) { ?>
+                                                    <tr>
+                                                        <td><?php echo htmlentities($cnt); ?></td>
+                                                        <td><?php echo htmlentities($i->SubjectName); ?></td>
+                                                        <td><?php echo htmlentities($i->SubjectCode); ?></td>
+                                                        <td><?php echo htmlentities($i->Creationdate); ?></td>
+                                                        <td><?php echo htmlentities($i->UpdationDate); ?></td>
+                                                        <td>a</td>
+
+                                                    </tr>
+                                                <?php $cnt = $cnt + 1;
+                                                } ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                            </tbody>
+
+                                            <tfoot>
+                                                <tr>
+                                                    <th>STT</th>
+                                                    <th>Subject Name</th>
+                                                    <th>Subject Code</th>
+                                                    <th>Creation Date</th>
+                                                    <th>Update Date</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </tfoot>

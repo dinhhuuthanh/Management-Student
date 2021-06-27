@@ -1,0 +1,7 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule "^([a-zA-Z0-9-]+).html$" "$1.php"
+RewriteRule "^class/([a-zA-Z0-9-]+).html$" "edit-class.php?classid=$1"
+RewriteRule "^students/([a-zA-Z0-9-]+).html$" "edit-students.php?stid=$1"
+RewriteRule "^results/([a-zA-Z0-9-]+).html$" "edit-results.php?stid=$1"
