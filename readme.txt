@@ -9,3 +9,5 @@ Open Your browser put inside browser http://localhost/StudentManagement
 
 Account:admin
 Password:Abc123!@#
+
+link Demo:managestudent.epizy.com
