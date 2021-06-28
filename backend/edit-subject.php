@@ -8,6 +8,7 @@ if (strlen($_SESSION['alogin']) == "") {
     header("Location: index.php");
 } else {
     if (isset($_POST['submit'])) {
+        $sid = intval($_GET['subjectid']);
         $subjectname = $_POST['subjectname'];
         $subjectcode = $_POST['subjectcode'];
         $sql = "update  tblsubjects set SubjectName=:subjectname,SubjectCode=:subjectcode where id=:sid";
@@ -15,14 +16,11 @@ if (strlen($_SESSION['alogin']) == "") {
         //gan bien
         $query->bindParam(':subjectname', $subjectname, PDO::PARAM_STR);
         $query->bindParam(':subjectcode', $subjectcode, PDO::PARAM_STR);
+        $query->bindParam(':sid', $sid, PDO::PARAM_STR);
         //thuc thi
         $query->execute();
-        $lastInsertId = $dbh->lastInsertId();
-        if ($lastInsertId) {
-            $msg = "Subject updated successfully";
-        } else {
-            $error = "Something went wrong. Please try again";
-        }
+
+        $msg = "Subject updated successfully";
     }
 ?>
 

@@ -11,25 +11,15 @@ if (strlen($_SESSION['alogin']) == "") {
         $classname = $_POST['classname'];
         $classnamenumeric = $_POST['classnamenumeric'];
         $section = $_POST['section'];
-
+        $cid = intval($_GET['classid']);
         $sql = "update  tblclasses set ClassName=:classname,ClassNameNumeric=:classnamenumeric,Section=:section where id=:cid ";
-        //chuan bi
         $query = $dbh->prepare($sql);
-
-        //gan bien
         $query->bindParam(':classname', $classname, PDO::PARAM_STR);
         $query->bindParam(':classnamenumeric', $classnamenumeric, PDO::PARAM_STR);
         $query->bindParam(':section', $section, PDO::PARAM_STR);
-        $query->execute(); //thuc thi cau lenh
-        //tra ve id cua hang hoac chuoi dc chen cuoi
-        $lastInsertId = $dbh->lastInsertId();
-
-        if ($lastInsertId) {
-            //Danh gia bieu thuc la true
-            $msg = "Class update successfully";
-        } else {
-            $error = "Something went wrong. Please try again";
-        }
+        $query->bindParam(':cid', $cid, PDO::PARAM_STR);
+        $query->execute();
+        $msg = "Data has been updated successfully";
     }
 ?>
 

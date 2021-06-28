@@ -13,33 +13,33 @@ if (strlen($_SESSION['alogin']) == "") {
         $studentid = $_POST['studentid'];
         $emailid = $_POST['emailid'];
         $gender = $_POST['radio1'];
-        $classid = $_POST['class'];
+        $classid = $_POST['classname'];
         $dob = $_POST['dob'];
+
+
+
         $status = 1;
 
 
-        $sql = "update tblstudents set StudentName=:studentname,RollId=:roolid,StudentEmail=:studentemail,Gender=:gender,DOB=:dob,Status=:status where StudentId=:stid ";
+        $sql = "update tblstudents set StudentName=:studentname,RollId=:studentid,StudentEmail=:studentemail,Gender=:gender,DOB=:dob,Status=:status where StudentId=:stid ";
         //chuan bi
         $query = $dbh->prepare($sql);
 
         //gan bien
         $query->bindParam(':studentname', $studentname, PDO::PARAM_STR);
-        $query->bindParam(':roolid', $roolid, PDO::PARAM_STR);
+        $query->bindParam(':studentid', $studentid, PDO::PARAM_STR);
         $query->bindParam(':studentemail', $studentemail, PDO::PARAM_STR);
         $query->bindParam(':gender', $gender, PDO::PARAM_STR);
-        $query->bindParam(':classid', $classid, PDO::PARAM_STR);
         $query->bindParam(':dob', $dob, PDO::PARAM_STR);
         $query->bindParam(':status', $status, PDO::PARAM_STR);
+        $query->bindParam(':stid', $stid, PDO::PARAM_STR);
         $query->execute(); //thuc thi cau lenh
-        //tra ve id cua hang hoac chuoi dc chen cuoi
-        $lastInsertId = $dbh->lastInsertId();
 
-        if ($lastInsertId) {
-            //Danh gia bieu thuc la true
-            $msg = "Student info updated successfully";
-        } else {
-            $error = "Something went wrong. Please try again";
-        }
+
+
+
+        //Danh gia bieu thuc la true
+        $msg = "Student info updated successfully";
     }
 ?>
 

@@ -17,14 +17,14 @@ if (strlen($_SESSION['alogin']) == "") {
         $status = 1;
 
 
-        $sql = "INSERT INTO  tblstudents(StudentName,RollId,StudentEmail,Gender,ClassId,DOB,Status) VALUES(:studentname,:roolid,:studentemail,:gender,:classid,:dob,:status)";
+        $sql = "INSERT INTO  tblstudents(StudentName,RollId,StudentEmail,Gender,ClassId,DOB,Status) VALUES(:studentname,:studentid,:emailid,:gender,:classid,:dob,:status)";
         //chuan bi
         $query = $dbh->prepare($sql);
 
         //gan bien
         $query->bindParam(':studentname', $studentname, PDO::PARAM_STR);
-        $query->bindParam(':roolid', $roolid, PDO::PARAM_STR);
-        $query->bindParam(':studentemail', $studentemail, PDO::PARAM_STR);
+        $query->bindParam(':studentid', $studentid, PDO::PARAM_STR);
+        $query->bindParam(':emailid', $emailid, PDO::PARAM_STR);
         $query->bindParam(':gender', $gender, PDO::PARAM_STR);
         $query->bindParam(':classid', $classid, PDO::PARAM_STR);
         $query->bindParam(':dob', $dob, PDO::PARAM_STR);

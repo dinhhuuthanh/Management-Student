@@ -20,9 +20,9 @@ if (strlen($_SESSION['alogin']) == "") {
                 $iid = $rowid[$count];
                 for ($i = 0; $i <= $count; $i++) {
 
-                    $sql = "update tblresult  set marks=:mrks where id=:iid ";
+                    $sql = "update tblresult  set marks=:marks where id=:iid ";
                     $query = $dbh->prepare($sql);
-                    $query->bindParam(':mrks', $mrks, PDO::PARAM_STR);
+                    $query->bindParam(':marks', $mrks, PDO::PARAM_STR);
                     $query->bindParam(':iid', $iid, PDO::PARAM_STR);
                     $query->execute();
 
