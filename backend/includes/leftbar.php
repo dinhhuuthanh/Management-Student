@@ -141,7 +141,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="ChangePassword.html" class="nav-link">
+                    <a href="changePassword.html" class="nav-link">
                         <i class="nav-icon fas fa-circle"></i>
                         <p>
                             Change Password
